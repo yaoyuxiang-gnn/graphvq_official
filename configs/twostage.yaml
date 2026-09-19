@@ -1,0 +1,17 @@
+datasets: [MUTAG, QM9]  # E3: cycle-rich + tree-like
+edge_chunk_bits: 8
+hidden: 32
+codebook_size: 32
+lr: 0.001
+commitment_beta: 0.25
+prior_type: gru         # gru | transformer (reviewer Q1 ablation)
+prior_hidden: 32        # prior width; 128 for the transformer-128 variant
+cond_type: mean         # mean | mean_std | emb_pool (reviewer Q2 ablation)
+stage_a_epochs: 80
+stage_b_epochs: 80
+seed: 0
+seeds: [0, 1, 2]        # E13: multi-seed evaluation
+num_samples: 300
+max_nodes: 128
+temperature: 1.0
+n_qm9: 5000

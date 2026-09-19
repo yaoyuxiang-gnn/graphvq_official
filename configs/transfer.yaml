@@ -1,0 +1,16 @@
+hidden: 64
+codebook_size: 32
+lr: 0.001
+commitment_beta: 0.25
+batch_size: 64
+eval_batch_size: 256
+source_train_ratio: 0.8
+target_pool_ratio: 0.2
+pretrain_epochs: 100
+fewshot_epochs: 150
+seeds: [0, 1, 2]
+K_values: [10, 50]
+pairs:
+  - [PROTEINS, NCI1]
+  - [PROTEINS, ENZYMES]
+  - [ENZYMES, PROTEINS]
