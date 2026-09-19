@@ -11,3 +11,5 @@ results/
 # macOS 元数据
 .DS_Store
 ._*
+
+.idea/
