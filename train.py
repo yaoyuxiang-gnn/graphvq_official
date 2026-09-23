@@ -1,7 +1,7 @@
-"""统一训练入口：按任务分发到各训练流程。
+"""Unified training entrypoint: dispatches to each training pipeline by task.
 
-用法：``python train.py [task ...]``，``task`` 取 ``benchmark`` / ``transfer`` /
-``generation`` / ``twostage``；缺省运行全部。
+Usage: ``python train.py [task ...]``, where ``task`` is one of ``benchmark`` /
+``transfer`` / ``generation`` / ``twostage``; all tasks run by default.
 """
 import argparse
 
@@ -18,9 +18,9 @@ TASKS = {
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="统一训练入口")
+    parser = argparse.ArgumentParser(description="Unified training entrypoint")
     parser.add_argument("tasks", nargs="*", choices=sorted(TASKS),
-                        help="要运行的训练任务；缺省运行全部")
+                        help="training tasks to run; all tasks run by default")
     args = parser.parse_args()
     tasks = args.tasks or list(TASKS)
     for task in tasks:

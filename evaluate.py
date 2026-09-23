@@ -1,7 +1,7 @@
-"""评估流程入口：分发到评估/分析类任务。
+"""Evaluation pipeline entrypoint: dispatches to evaluation/analysis tasks.
 
-用法：``python evaluate.py [task ...]``，``task`` 取 ``benchmark`` / ``transfer`` /
-``generation`` / ``twostage``；缺省运行全部。
+Usage: ``python evaluate.py [task ...]``, where ``task`` is one of ``benchmark`` /
+``transfer`` / ``generation`` / ``twostage``; all tasks run by default.
 """
 import argparse
 
@@ -18,9 +18,9 @@ EVAL_TASKS = {
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="评估流程入口")
+    parser = argparse.ArgumentParser(description="Evaluation pipeline entrypoint")
     parser.add_argument("tasks", nargs="*", choices=sorted(EVAL_TASKS),
-                        help="要运行的评估任务；缺省运行全部")
+                        help="evaluation tasks to run; all tasks run by default")
     args = parser.parse_args()
     tasks = args.tasks or list(EVAL_TASKS)
     for task in tasks:

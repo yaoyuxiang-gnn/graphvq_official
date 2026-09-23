@@ -135,13 +135,13 @@ def run() -> dict:
     json.dump({"results": results, "scaling": sweep}, open(RESULTS_DIR / "benchmark_results.json", "w"), indent=2)
 
     lines = [""]
-    lines.append("## 主结果（测试准确率 ↑）")
-    lines.append("| 数据集 | " + " | ".join(METHODS) + " |")
+    lines.append("## Main results (test accuracy ↑)")
+    lines.append("| Dataset | " + " | ".join(METHODS) + " |")
     lines.append("| --- |" + " --- |" * len(METHODS))
     for d, mres in results.items():
         vals = [f"{mres[m]['mean']:.4f}±{mres[m]['std']:.4f}" for m in METHODS]
         lines.append(f"| {d} | " + " | ".join(vals) + " |")
-    lines += ["", f"## 词表规模 scaling 轴（{ds}，Ours-VQ）", "| codebook_size | 测试准确率 |", "| --- | --- |"]
+    lines += ["", f"## Codebook-size scaling axis ({ds}, Ours-VQ)", "| codebook_size | Test accuracy |", "| --- | --- |"]
     for k, r in sweep.items():
         lines.append(f"| {k} | {r['mean']:.4f} ± {r['std']:.4f} |")
     report = "\n".join(lines)

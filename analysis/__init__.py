@@ -1,1 +1,1 @@
-"""模型分析工具与图生成实验（数据加载、指标计算、图生成流程）。"""
+"""Model analysis utilities and graph generation experiments (dataset loading, metric computation, graph generation pipelines)."""
